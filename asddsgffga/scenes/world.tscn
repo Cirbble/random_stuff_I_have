@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://brgpgof8gwkgv"]
+
+[ext_resource type="PackedScene" uid="uid://b0m2k5t0kmknm" path="res://scenes/player.tscn" id="1_ah1h1"]
+[ext_resource type="Texture2D" uid="uid://bbhoik347y71v" path="res://scripts/ground.jpg" id="2_flrgd"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ld6y4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kc1vi"]
+size = Vector2(1622, 48)
+
+[node name="world" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_ah1h1")]
+position = Vector2(568, 517)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+position = Vector2(563, 727.125)
+scale = Vector2(1606, -41.7501)
+mesh = SubResource("QuadMesh_ld6y4")
+texture = ExtResource("2_flrgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(568, 728)
+shape = SubResource("RectangleShape2D_kc1vi")
